@@ -422,7 +422,7 @@ IS_OBJ_HAS_GUARDS           //是否有魔术方法递归保护标志
 这个标记就会一直随着这个字符串的生存而存在的， 省掉了我之前的很多tricky的做法.
 
 ####ZVAL预先分配
- 前面我们说过, PHP5的zval分配采用的是堆上分配内存, 也就是在PHP预案代码中随处可见的MAKE_STD_ZVAL和ALLOC_ZVAL宏. 我们也知道了本来一个zval只需要24个字节, 但是算上gc_info, 其实分配了32个字节, 再加上PHP自己的内存管理在分配内存的时候都会在内存前面保留一部分信息:
+ 前面我们说过, PHP5的zval分配采用的是堆上分配内存, 也就是在PHP原来代码中随处可见的MAKE_STD_ZVAL和ALLOC_ZVAL宏. 我们也知道了本来一个zval只需要24个字节, 但是算上gc_info, 其实分配了32个字节, 再加上PHP自己的内存管理在分配内存的时候都会在内存前面保留一部分信息:
 ````c
 typedef struct _zend_mm_block {
     zend_mm_block_info info;
